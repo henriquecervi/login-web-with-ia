@@ -36,6 +36,7 @@ tests/
 | Command | Description | Use Case |
 |---------|-------------|----------|
 | `npm install` | Install all dependencies | First time setup or after package.json changes |
+| `npm run dev` | Run the application 3001 port. |
 | `npm test` | Run all tests once | CI/CD, general validation |
 | `npm run test:watch` | Run tests in watch mode | Active development |
 | `npm run test:coverage` | Generate coverage report | Quality analysis |
