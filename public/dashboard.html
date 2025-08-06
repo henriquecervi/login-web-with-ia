@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Login Web with IA</title>
+    
+    <!-- MaterializeCSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="blue darken-3">
+        <div class="nav-wrapper container">
+            <a href="/dashboard" class="brand-logo">
+                <i class="material-icons left">dashboard</i>
+                Dashboard
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/dashboard" class="active">Dashboard</a></li>
+                <li>
+                    <a href="#" id="refreshBtn" title="Refresh Profile">
+                        <i class="material-icons">refresh</i>
+                    </a>
+                </li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="card-panel blue lighten-5" style="margin-top: 20px;">
+                    <h4 class="center-align blue-text text-darken-3">
+                        <i class="material-icons large">dashboard</i>
+                        Welcome to Dashboard
+                    </h4>
+                    <p class="center-align flow-text grey-text text-darken-2">
+                        You are successfully logged into the system!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Main Content Area -->
+            <div class="col s12 m8">
+                <!-- User Profile Card -->
+                <div class="card dashboard-card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            <i class="material-icons left blue-text">person</i>
+                            User Profile
+                        </span>
+                        <div id="userProfile">
+                            <div class="center-align">
+                                <div class="preloader-wrapper small active">
+                                    <div class="spinner-layer spinner-blue-only">
+                                        <div class="circle-clipper left">
+                                            <div class="circle"></div>
+                                        </div>
+                                        <div class="gap-patch">
+                                            <div class="circle"></div>
+                                        </div>
+                                        <div class="circle-clipper right">
+                                            <div class="circle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>Loading profile...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar - System Stats -->
+            <div class="col s12 m4">
+                <div class="card dashboard-card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            <i class="material-icons left green-text">analytics</i>
+                            System Status
+                        </span>
+                        <div class="system-stats">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="material-icons blue-text">security</i>
+                                </div>
+                                <div class="stat-content">
+                                    <h6>Security</h6>
+                                    <p class="status-active">Active</p>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="material-icons green-text">check_circle</i>
+                                </div>
+                                <div class="stat-content">
+                                    <h6>Status</h6>
+                                    <p class="status-online">Online</p>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="material-icons orange-text">schedule</i>
+                                </div>
+                                <div class="stat-content">
+                                    <h6>Session</h6>
+                                    <p class="status-session">Active</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Quick Actions -->
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            <i class="material-icons left orange-text">flash_on</i>
+                            Quick Actions
+                        </span>
+                        <div class="quick-actions-container">
+                            <button id="settingsBtn" class="btn-large waves-effect waves-light blue darken-3 rounded">
+                                <i class="material-icons left">settings</i>
+                                Settings
+                            </button>
+                            <button id="securityBtn" class="btn-large waves-effect waves-light green darken-2 rounded">
+                                <i class="material-icons left">security</i>
+                                Security
+                            </button>
+                            <button id="helpBtn" class="btn-large waves-effect waves-light orange darken-2 rounded">
+                                <i class="material-icons left">help</i>
+                                Help
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="card-panel red lighten-4 red-text text-darken-4" style="display: none;">
+            <i class="material-icons left">error</i>
+            <span id="errorText"></span>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large blue darken-3">
+            <i class="large material-icons">add</i>
+        </a>
+        <ul>
+            <li>
+                <a class="btn-floating blue" id="fabSettings">
+                    <i class="material-icons">settings</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating green" id="fabSecurity">
+                    <i class="material-icons">security</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating orange" id="fabHelp">
+                    <i class="material-icons">help</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- MaterializeCSS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/app.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 
+</html> 
